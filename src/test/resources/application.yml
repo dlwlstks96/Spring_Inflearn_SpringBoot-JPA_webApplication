@@ -1,0 +1,19 @@
+spring: #스프링 부트는 아래 코드가 없으면 알아서 메모리 DB 사용
+#  datasource:
+#    url: jdbc:h2:mem:test #실제 h2 DB 띄우지 않고 메모리 DB 사용(H2가 제공해주는 것)
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create #실행 시점에 갖고 있던 테이블 다 지우고 새로 생성
+#    properties:
+#      hibernate:
+#        #show_sql: true #system에 출력
+#        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug #log에 찍는 것
+    org.hibernate.type: trace #파라미터 내역 로그 찍어주는 것
