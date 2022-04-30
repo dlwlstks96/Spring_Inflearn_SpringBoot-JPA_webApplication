@@ -31,7 +31,7 @@ public class OrderRepository {
         boolean isFirstCondition = true;
 
         //주문 상태 검색
-        if (orderSearch.getOredrStatus() != null) {
+        if (orderSearch.getOrderStatus() != null) {
             if (isFirstCondition) {
                 jpql += " where";
                 isFirstCondition = false;
@@ -55,10 +55,10 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(jpql, Order.class)
                 .setMaxResults(1000);
 
-        if (orderSearch.getOredrStatus() != null) {
-            query = query.setParameter("status", orderSearch.getOredrStatus());
+        if (orderSearch.getOrderStatus() != null) {
+            query = query.setParameter("status", orderSearch.getOrderStatus());
         }
-        if (orderSearch.getOredrStatus() != null) {
+        if (orderSearch.getOrderStatus() != null) {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
 
@@ -78,8 +78,8 @@ public class OrderRepository {
         List<Predicate> criteria = new ArrayList<>();
 
         //주문 상태 검색
-        if (orderSearch.getOredrStatus() != null) {
-            Predicate status = cb.equal(o.get("status"), orderSearch.getOredrStatus());
+        if (orderSearch.getOrderStatus() != null) {
+            Predicate status = cb.equal(o.get("status"), orderSearch.getOrderStatus());
             criteria.add(status);
         }
 

@@ -30,7 +30,7 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne(fetch = FetchType.LAZY) //일대일 매핑, 하나의 주문은 하나의 배송 정보만 가져야 한다.
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY) //일대일 매핑, 하나의 주문은 하나의 배송 정보만 가져야 한다.
     @JoinColumn(name = "delivery_id") //delivery와의 일대일 관계에서 얘가 주인
     private Delivery delivery;
 
